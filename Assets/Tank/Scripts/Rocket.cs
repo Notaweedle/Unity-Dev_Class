@@ -1,0 +1,26 @@
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+public class Rocket : MonoBehaviour
+{
+    [SerializeField] float speed = 1.0f;
+    [SerializeField] GameObject effect;
+    Rigidbody rb;   
+    void Start()
+    {
+       rb = GetComponent<Rigidbody>(); 
+       rb.AddRelativeForce(Vector3.up * speed, ForceMode.Impulse);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+         
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+       
+        Destroy(gameObject);
+        Instantiate(effect, transform.position, Quaternion.identity);
+    }
+}

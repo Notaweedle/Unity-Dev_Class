@@ -24,9 +24,10 @@ public class Spawner : MonoBehaviour
         if (Keyboard.current.spaceKey.isPressed) 
         {
             Vector3 pos = transform.position;
-            pos.x = Random.Range(-10, 10);
-            pos.y = Random.Range(-10, 10);
-            Instantiate(SpawnObject, transform.position, transform.rotation);
+            pos.x += Random.Range(-5.0f, 5.0f);
+            pos.y += Random.Range(-5.0f, 5.0f);
+           var go= Instantiate(SpawnObject, transform.position, transform.rotation);
+            Destroy(go, 4.0f);
         }
         
     }
