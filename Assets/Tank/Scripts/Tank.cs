@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -6,9 +7,9 @@ public class Tank : MonoBehaviour
     [SerializeField] float speed = 5.0f;
     [SerializeField] float rotationSpeed = 90.0f; // rotation in degrees per second
 
-    [SerializeField] GameObject ammo;
+    [SerializeField] Ammo ammo;
     [SerializeField] GameObject muzzle;
-
+    [SerializeField] int Ammo = 10;
     void Start()
     {
         //
@@ -35,9 +36,14 @@ public class Tank : MonoBehaviour
 
         // check if "Fire" key is pressed, if so instantiate the ammo (rocket)
         // ammo is instantiate at the muzzle position and rotation
-        if (Keyboard.current.spaceKey.wasPressedThisFrame)
+        if (Keyboard.current.spaceKey.wasPressedThisFrame && Ammo >=1)
         {
             Instantiate(ammo, muzzle.transform.position, muzzle.transform.rotation);
+            Ammo--;
         }
+
+        
     }
+
+    
 }
