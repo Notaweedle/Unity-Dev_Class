@@ -17,8 +17,8 @@ public class Turret : MonoBehaviour
     
     void Update()
     {
-     firerate-= Time.deltaTime;
-        if (fireTimer <= 0) 
+        firerate -= Time.deltaTime;
+        if (fireTimer <= 0 ) 
         { 
             fireTimer += firerate;
             Instantiate(ammo, muzzle.position, muzzle.rotation);
