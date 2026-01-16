@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class Tank : MonoBehaviour
 {
@@ -11,11 +12,13 @@ public class Tank : MonoBehaviour
     [SerializeField] GameObject muzzle;
     [SerializeField] int Ammo = 10;
 
+    [SerializeField] Slider HealthBar;
+
     InputAction moveAction;
     InputAction lookAction;
     InputAction attackAction;
 
-    
+    Health health;
     void Start()
     {
         moveAction = InputSystem.actions.FindAction("Move");
@@ -23,6 +26,7 @@ public class Tank : MonoBehaviour
         attackAction = InputSystem.actions.FindAction("Attack");
 
         attackAction.started += ctx => OnAttack();
+        health = GetComponent<Health>();
     }
 
     void Update()
@@ -42,6 +46,7 @@ public class Tank : MonoBehaviour
 
      
         transform.Rotate(Vector3.up * rotation * rotationSpeed * Time.deltaTime);
+        HealthBar.value = 0.5f;
         
     }
     void OnAttack() { Instantiate(ammo, muzzle.transform.position, muzzle.transform.rotation); }

@@ -2,16 +2,27 @@ using TMPro;
 using UnityEngine;
 
 
+
 public class GameManager : MonoBehaviour
 {
     [SerializeField] GameObject TitlePalnel;
     [SerializeField] TMP_Text Score_text;
+    [SerializeField] bool debug=false;
 
-    public int score = 145;
+    static GameManager instance;
+    //public static GameManager Instance
+    //(
+    //   get (if (instance == null) )
+    //);
+    
+    public int score { get; set; } = 0;
+
+
     
     void Start()
     {
-        Time.timeScale = 0.0f;
+        Time.timeScale = (debug)? 1.0f : 0.0f;
+        TitlePalnel.SetActive(!debug);
     }
 
     
