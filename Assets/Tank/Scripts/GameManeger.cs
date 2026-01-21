@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] TMP_Text Score_text;
     [SerializeField] bool debug=false;
 
-    static GameManager instance;
+   
     
     public int score { get; set; } = 0;
 
@@ -22,10 +22,12 @@ public class GameManager : MonoBehaviour
     
     void Update()
     {
+        TitlePalnel.SetActive(false);
         Score_text.text = score.ToString("000000");
     }
     public void OnGameStart() 
     {
+        
         TitlePalnel.SetActive(false);
         Time.timeScale = 1.0f;
     }
