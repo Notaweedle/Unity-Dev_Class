@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
-    [SerializeField] float rotationSpeed = 45.0f;
+    [SerializeField] float rotationSpeed = 25.0f;
     [SerializeField] float firerate = 1.0f;
     [SerializeField] Ammo ammo;
     [SerializeField] Transform muzzle;
@@ -17,13 +17,14 @@ public class Turret : MonoBehaviour
     
     void Update()
     {
-        firerate -= Time.deltaTime;
+        fireTimer -= Time.deltaTime;
         if (fireTimer <= 0 ) 
-        { 
+        {
             fireTimer += firerate;
             Instantiate(ammo, muzzle.position, muzzle.rotation);
             
         }
         transform.Rotate(Vector3.up * rotationSpeed * Time.deltaTime);
+
     }
 }

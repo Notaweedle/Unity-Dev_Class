@@ -7,8 +7,8 @@ public class Health : MonoBehaviour
     [SerializeField] GameObject DestroyEffect;
 
     bool destroyed = false;
-    
-   
+    float health;
+
     public float CurrentHealth
     {
 
@@ -16,19 +16,7 @@ public class Health : MonoBehaviour
 
         set => health = Mathf.Clamp(value, 0, HpMax); 
     }
-
-    float health;
-    void Start()
-    {
-        
-    }
-
     
-    void Update()
-    {
-        
-    }
-
     public void OnDamage(float damage) 
     {
         CurrentHealth -= damage;
@@ -40,10 +28,8 @@ public class Health : MonoBehaviour
             Instantiate(hitEffect, transform.position, Quaternion.identity);
         }
 
-        if (destroyed) 
-        { if (DestroyEffect != null) 
-            { Instantiate(DestroyEffect, transform.position, Quaternion.identity); }
-        }
+        if (destroyed && DestroyEffect != null)
+        { Instantiate(DestroyEffect, transform.position, Quaternion.identity); }
         Destroy(gameObject);
     }
     public void onHeal(float amount) {

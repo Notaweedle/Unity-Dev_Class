@@ -10,15 +10,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] bool debug=false;
 
     static GameManager instance;
-    //public static GameManager Instance
-    //(
-    //   get (if (instance == null) )
-    //);
     
     public int score { get; set; } = 0;
 
-
-    
     void Start()
     {
         Time.timeScale = (debug)? 1.0f : 0.0f;

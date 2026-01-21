@@ -46,7 +46,7 @@ public class Tank : MonoBehaviour
 
      
         transform.Rotate(Vector3.up * rotation * rotationSpeed * Time.deltaTime);
-        HealthBar.value = 0.5f;
+        
         
     }
     void OnAttack() { Instantiate(ammo, muzzle.transform.position, muzzle.transform.rotation); }

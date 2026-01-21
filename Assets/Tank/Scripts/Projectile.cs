@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Rocket : MonoBehaviour
+public class Projectile : MonoBehaviour
 {
     [SerializeField] float speed = 1.0f;
     [SerializeField] float InAirDestroy = 5.0f;
@@ -17,7 +17,7 @@ public class Rocket : MonoBehaviour
         Destroy(gameObject, InAirDestroy);
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
          
