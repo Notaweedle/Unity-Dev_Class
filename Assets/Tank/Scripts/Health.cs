@@ -32,7 +32,7 @@ public class Health : MonoBehaviour
         { Instantiate(DestroyEffect, transform.position, Quaternion.identity); }
         Destroy(gameObject);
     }
-    public void onHeal(float amount) {
+    public void OnHeal(float amount) {
         CurrentHealth += amount;
     }
 }

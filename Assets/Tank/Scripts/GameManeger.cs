@@ -22,7 +22,6 @@ public class GameManager : MonoBehaviour
     
     void Update()
     {
-        TitlePalnel.SetActive(false);
         Score_text.text = score.ToString("000000");
     }
     public void OnGameStart() 
